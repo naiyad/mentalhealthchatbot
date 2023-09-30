@@ -1,24 +1,22 @@
 
 import openai
 import streamlit as st
-openai.api_key = st.secrets['OPENAI_API_KEY']
-with st.sidebar:
-    st.title('🤖💬 OpenAI Chatbot')
-    if 'OPENAI_API_KEY' in st.secrets:
-        st.success('API key already provided!', icon='✅')
-        openai.api_key = st.secrets['OPENAI_API_KEY']
-    else:
-        openai.api_key = st.text_input('Enter OpenAI API token:', type='password')
-        if not (openai.api_key.startswith('sk-') and len(openai.api_key)==51):
-            st.warning('Please enter your credentials!', icon='⚠️')
-        else:
-            st.success('Proceed to entering your prompt message!', icon='👉')
+##openai.api_key = st.secrets['OPENAI_API_KEY']
+openai.api_key = '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'
 
 if "messages" not in st.session_state:
+    system_prompt = """
+you are a knowledgeable mental health physician authorized to provide mental health guidance
+you are friendly and you provide guidance directly and do not reference patients to others
+what follows is a discussion with a patient 
+    """
+    
     st.session_state.messages = []
+    st.session_state.messages.append({"role": "system", "content": system_prompt})
 
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
+    if message["role"] != "system":
+      with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
 if prompt := st.chat_input("What is up?"):
