@@ -1,8 +1,7 @@
 
 import openai
 import streamlit as st
-##openai.api_key = st.secrets['OPENAI_API_KEY']
-openai.api_key = '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'
+openai.api_key = st.secrets['OPENAI_API_KEY']
 
 if "messages" not in st.session_state:
     system_prompt = """
