@@ -7,6 +7,10 @@ import pinecone
 import streamlit as st
 import os
 
+os.environ['PINECONE_API_KEY']='448e6939-34af-4b40-aacb-79508d2e8276'
+os.environ['PINECONE_API_ENV']='gcp-starter'
+os.environ['PINECONE_INDEX_NAME']='mentalhealthchatbot'
+
 PINECONE_API_KEY=os.environ['PINECONE_API_KEY']
 PINECONE_API_ENV=os.environ['PINECONE_API_ENV']
 PINECONE_INDEX_NAME=os.environ['PINECONE_INDEX_NAME']
