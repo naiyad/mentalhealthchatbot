@@ -11,6 +11,9 @@ st.markdown(
 
 """    
 )
+st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/b/b1/Jasmine_Flower_%282%29.jpg")
+st.image("https://upload.wikimedia.org/wikipedia/commons/b/b1/Jasmine_Flower_%282%29.jpg")
+st.image("coverphoto.jpg")
 
 # if "messages" not in st.session_state:
 #     system_prompt = """
