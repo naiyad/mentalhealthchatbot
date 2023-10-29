@@ -8,7 +8,6 @@ st.markdown(
 """
 # Welcome to your personal mental health support system
 
-
 """    
 )
 st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/b/b1/Jasmine_Flower_%282%29.jpg")

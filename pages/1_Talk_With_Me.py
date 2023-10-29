@@ -45,7 +45,7 @@ def send_email(to_emails = 'testEmail@gprof.com',
       subject=subject,
       html_content=message)
   try:
-      sg = SendGridAPIClient(os.environ['SENDGRID_API_KEY'])
+      sg = SendGridAPIClient(st.secrets['SENDGRID_API_KEY'])
       response = sg.send(message)
       print(response.status_code)
       print(response.body)
@@ -56,7 +56,7 @@ def send_email(to_emails = 'testEmail@gprof.com',
       print("Did not succeed")
 
 def get_conversation_summary(p):
-    formatted_messages = [f"## {m['role']}:\n### {m['content']}\n\n" for m in st.session_state.messages]
+    formatted_messages = [f"## {m['role']}:\n### {m['content']}\n\n" for m in st.session_state.messages[1:]]
     formatted_string="\n**********\n".join(formatted_messages)
     print(f"Formatted string is {formatted_string}")
     summary=f"""
